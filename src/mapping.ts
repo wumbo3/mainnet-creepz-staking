@@ -37,7 +37,7 @@ export function handleStakeWithdraw(event: StakeWithdraw): void {
   transaction.save()
 }
 
-export function handleDeposit(event: LoomiDeposit): void {
+export function handleLoomiDeposit(event: LoomiDeposit): void {
   let transaction = new LoomiTransaction(event.transaction.hash.toHex());
 
   transaction.userAddress = event.params.userAddress.toHexString();
@@ -47,7 +47,7 @@ export function handleDeposit(event: LoomiDeposit): void {
   transaction.save();
 }
 
-export function handleDepositFor(event: LoomiDepositFor): void {
+export function handleLoomiDepositFor(event: LoomiDepositFor): void {
   let transaction = new LoomiTransaction(event.transaction.hash.toHex());
 
   transaction.userAddress = event.params.userAddress.toHexString();
