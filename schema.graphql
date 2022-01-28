@@ -1,0 +1,11 @@
+# Note: Currently, all types in your schema must have an @entity directive. 
+# In the future, we will treat types without an @entity directive as value objects, but this is not yet supported.
+
+type Transaction @entity {
+  id: ID!
+  staker: String!
+  contractAddress: String!
+  amount: BigInt!
+  isWithdraw: Boolean
+  isDeposit: Boolean
+}

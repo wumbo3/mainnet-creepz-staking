@@ -1,0 +1,16 @@
+{
+  "name": "mainnet-creepz-staking",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ wumbo3/mainnet-creepz-staking",
+    "create-local": "graph create --node http://localhost:8020/ wumbo3/mainnet-creepz-staking",
+    "remove-local": "graph remove --node http://localhost:8020/ wumbo3/mainnet-creepz-staking",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 wumbo3/mainnet-creepz-staking"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.25.1",
+    "@graphprotocol/graph-ts": "0.24.1"
+  }
+}
