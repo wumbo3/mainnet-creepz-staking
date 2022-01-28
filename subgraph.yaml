@@ -14,13 +14,41 @@ dataSources:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - Transaction
+        - StakeTransaction
       abis:
         - name: CBCStaking
           file: ./abis/CBCStaking.json
       eventHandlers:
         - event: Deposit(indexed address,address,uint256)
-          handler: handleDeposit
+          handler: handleStakeDeposit
         - event: Withdraw(indexed address,address,uint256)
-          handler: handleWithdraw
+          handler: handleStakeWithdraw
+      file: ./src/mapping.ts
+  - kind: ethereum
+    name: Loomi
+    network: mainnet
+    source:
+      address: "0xeb57bf569ad976974c1f861a5923a59f40222451"
+      abi: Loomi
+      startBlock: 14030540
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - LoomiTransaction
+      abis:
+        - name: Loomi
+          file: ./abis/Loomi.json
+      eventHandlers:
+        - event: ClaimTax(indexed address,indexed address,uint256)
+          handler: handleClaimTax
+        - event: Deposit(indexed address,uint256)
+          handler: handleLoomiDeposit
+        - event: DepositFor(indexed address,indexed address,uint256)
+          handler: handleLoomiDepositFor
+        - event: Spend(indexed address,indexed address,uint256,uint256)
+          handler: handleLoomiSpend
+        - event: Withdraw(indexed address,uint256,uint256)
+          handler: handleLoomiWithdraw
       file: ./src/mapping.ts
