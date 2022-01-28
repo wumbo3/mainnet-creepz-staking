@@ -14,6 +14,7 @@ export function handleDeposit(event: Deposit): void {
   transaction.amount = event.params.tokensAmount;
   transaction.isWithdraw = false;
   transaction.isDeposit = true;
+  transaction.timestamp = event.block.timestamp;
   transaction.save()
 }
 
@@ -26,6 +27,7 @@ export function handleWithdraw(event: Withdraw): void {
   transaction.amount = event.params.tokensAmount;
   transaction.isWithdraw = true;
   transaction.isDeposit = false;
+  transaction.timestamp = event.block.timestamp;
   transaction.save()
 }
 
