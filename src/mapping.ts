@@ -84,9 +84,12 @@ export function handleClaimTax(event: LoomiClaimTax): void {
   }
   transaction.userAddress = event.params.userAddress.toHexString();
   transaction.currentNonce = event.transaction.nonce;
-  transaction.usedNonces.push(event.transaction.nonce);
   transaction.amountCollected = event.params.amount;
-  transaction.totalCollected.plus(event.params.amount);
+  transaction.totalCollected = transaction.totalCollected.plus(event.params.amount);
+  if (!transaction.usedNonces) {
+    transaction.usedNonces = [];
+  }
+  transaction.usedNonces!.push(event.transaction.nonce);
   transaction.save();
 }
 
