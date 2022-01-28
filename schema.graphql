@@ -18,9 +18,11 @@ type LoomiTransaction @entity {
   timestamp: BigInt!
 }
 
-type TaxCollectionTransaction @entity {
+type UserTaxesLog @entity {
   id: ID!
   userAddress: String!
-  amount: BigInt!
-  timestamp: BigInt!
+  usedNonces: [BigInt!]
+  currentNonce: BigInt!
+  amountCollected: BigInt!
+  totalCollected: BigInt!
 }
