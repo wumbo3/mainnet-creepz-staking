@@ -11,7 +11,7 @@ import {
   DepositFor as LoomiDepositFor,
   ClaimTax as LoomiClaimTax
 } from "../generated/Loomi/Loomi"
-import { LoomiTransaction, StakeTransaction, UserTaxesLog } from "../generated/schema"
+import { LoomiTransaction, StakeTransaction, UserTaxLog } from "../generated/schema"
 
 export function handleStakeDeposit(event: StakeDeposit): void {
   let transaction = new StakeTransaction(event.transaction.hash.toHex());
@@ -78,9 +78,9 @@ export function handleLoomiWithdraw(event: LoomiWithdraw): void {
 }
 
 export function handleClaimTax(event: LoomiClaimTax): void {
-  let transaction = new UserTaxesLog(event.params.userAddress.toHexString());
+  let transaction = new UserTaxLog(event.params.userAddress.toHexString());
   if (!transaction) {
-    transaction = new UserTaxesLog(event.params.userAddress.toHexString());
+    transaction = new UserTaxLog(event.params.userAddress.toHexString());
   }
   transaction.userAddress = event.params.userAddress.toHexString();
   transaction.currentNonce = event.transaction.nonce;
