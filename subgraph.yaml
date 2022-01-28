@@ -37,6 +37,7 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - LoomiTransaction
+        - TaxCollectionTransaction
       abis:
         - name: Loomi
           file: ./abis/Loomi.json

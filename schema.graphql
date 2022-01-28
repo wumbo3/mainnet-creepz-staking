@@ -17,3 +17,10 @@ type LoomiTransaction @entity {
   transactionType: String!
   timestamp: BigInt!
 }
+
+type TaxCollectionTransaction @entity {
+  id: ID!
+  userAddress: String!
+  amount: BigInt!
+  timestamp: BigInt!
+}
